@@ -52,8 +52,8 @@ class Stream:
             # update skeleton data, protect with mutex
             mutex.acquire()
             try:
-                print("thread: {}".format(threading.current_thread().name))
-                print("ID {}".format(os.getpid()))
+                #print("thread: {}".format(threading.current_thread().name))
+                #print("ID {}".format(os.getpid()))
                 sk.update(sample)
                 self.centroids = self.centroids + 1
                 print(sk.get_marker_positions())
@@ -61,7 +61,6 @@ class Stream:
                 # print(sample,"@",timestamp, end='\n\n')
             finally:
                 mutex.release()
-                print('done')
             time.sleep(1)
 
 
